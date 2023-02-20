@@ -1,10 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterSlice from './slice/counterSlice';
+import { useDispatch } from 'react-redux';
+
+import countriesSlice from './slice/countriesSlice';
+import themeSlice from './slice/themeSlice';
+import detailSlice from './slice/detailSlice';
+import filterSlicer from './slice/filterSlicer';
+
 export const store = configureStore({
   reducer: {
-    counterSlice,
+    countriesSlice,
+    themeSlice,
+    detailSlice,
+    filterSlicer
   },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();

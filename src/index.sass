@@ -1,6 +1,40 @@
+
+html[data-sheme='dark']
+  --ModeElements: hsl(209, 23%, 22%)
+  --Background:hsl(207, 26%, 17%)
+  --ColorText:hsl(0, 0%, 100%)
+html[data-sheme='light']
+  --ModeElements: hsl(0, 0%, 52%)
+  --Background: hsl(0, 0%, 98%)
+  --ColorText: hsl(209, 23%, 22%)
+// font-weight: 400;600;800
+  
+*
+  box-sizing: border-box
+
 body 
   margin: 0
   padding: 0
   font-family: 'Shantell Sans', cursive
+  font-weight: 400
+  min-width: 800px
+  overflow: auto
+
+body 
+  background: var(--Background)
 
 
+.b-container
+  margin: 0 auto
+  max-width: 800px
+  width: 100%
+
+.greed
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-template-rows: repeat(2, 1fr)
+  grid-column-gap: 20px
+  grid-row-gap: 20px
+
+a
+  text-decoration: none
