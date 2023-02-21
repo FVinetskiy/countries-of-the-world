@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ListCountries from '../../components/ListCountries/ListCountries';
 import Skeleton from '../../components/Skeleton/Skeleton';
 import ItemCountrie from '../../components/ItemCountrie/ItemCountrie';
 import Filters from '../../components/Filters/Filters';
+
 
 const Home = ({ status, countries }) => {
   const [filtredCountry , setFiltredCountry] = useState(countries);

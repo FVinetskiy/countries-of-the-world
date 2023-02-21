@@ -9,22 +9,22 @@ import {
   fetchDetail,
 } from '../../redux/slice/detailSlice';
 
-const Detail = () => {
-  let { name } = useParams();
+const Detail:React.FC = () => {
+  let { name } = useParams() as { name?: string };
+
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { detailInfo, status } = useSelector(selectDetail);
 
   const getProduct = async () => {
-    dispatch(
-      fetchDetail({
-        name,
-      })
-    );
+    if (name) {
+      dispatch(fetchDetail({ name }));
+    }
   };
 
   React.useEffect(() => {
     getProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
   return (
@@ -33,7 +33,7 @@ const Detail = () => {
         back
       </button>
       {status === 'loading' && <h1>Loading...</h1>}
-      {status === 'succes' && <InfoDetail {...detailInfo} />}
+      {status === 'success' && <InfoDetail {...detailInfo} />}
     </div>
   );
 };

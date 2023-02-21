@@ -2,14 +2,23 @@ import React from 'react';
 import Select from 'react-select';
 import './CustomSelect.sass';
 
-const CustomSelect = ({ onChange, value, region }) => {
-  const optionsMap = {
+type CustomSelectProps = {
+  onChange: any;
+  region: any;
+};
+
+const CustomSelect: React.FC<CustomSelectProps> = ({
+  onChange,
+  region,
+}) => {
+  const optionsMap:any = {
     Africa: { value: 'Africa', label: 'Africa' },
     America: { value: 'America', label: 'America' },
     Asia: { value: 'Asia', label: 'Asia' },
     Europe: { value: 'Europe', label: 'Europe' },
     Oceania: { value: 'Oceania', label: 'Oceania' },
   };
+
   const options = Object.values(optionsMap);
 
   return (

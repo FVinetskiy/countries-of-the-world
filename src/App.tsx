@@ -16,7 +16,7 @@ const App = () => {
   const { countries, status } = useSelector(selectCountry);
 
   const getCountries = async () => {
-    dispatch(fetchCountry({}));
+    dispatch(fetchCountry());
   };
 
   React.useEffect(() => {

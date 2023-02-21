@@ -10,6 +10,7 @@ import {
   setRegion,
 } from '../../redux/slice/filterSlicer';
 
+
 const Filters = ({ onSearch }) => {
   const dispatch = useAppDispatch();
   const { search, region } = useSelector(selectFilter);

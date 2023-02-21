@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../strore';
 
 const initialState = {
   theme: 'light'
@@ -18,4 +19,4 @@ export const themeSlice = createSlice({
 export const { setTheme } = themeSlice.actions;
 export default themeSlice.reducer;
 
-export const selectTheme = (state) => state.themeSlice;
+export const selectTheme = (state: RootState) => state.themeSlice;

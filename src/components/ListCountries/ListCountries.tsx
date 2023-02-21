@@ -1,7 +1,11 @@
 import React from 'react'
 import './ListCountries.sass';
 
-const ListCountries = ({ countries }) => {
+type IlistProps = {
+  countries: []
+};
+
+const ListCountries: React.FC<IlistProps> = ({ countries }) => {
   return (
     <div className="listwrapper">
       <h1 className="listwrapper__title">ListCountries</h1>

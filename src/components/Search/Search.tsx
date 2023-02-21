@@ -1,7 +1,12 @@
 import React from 'react';
 import './Search.sass';
 
-const Search = ({ onChange, value }) => {
+type Isearch = {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+};
+
+const Search: React.FC<Isearch> = ({ onChange, value }) => {
   return (
     <input
       className="search"

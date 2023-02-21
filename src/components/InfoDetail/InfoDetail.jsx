@@ -1,20 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import './InfoDetail.sass';
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './InfoDetail.sass';
-
 import {
   selectDetail,
   fetchBorderDetail,
-} from '../../redux/slice/detailSlice';
+} from '../../redux/slice/detailBorderSlice';
 import { useAppDispatch } from '../../redux/strore';
 import { useSelector } from 'react-redux';
 
 const InfoDetail = (props) => {
-    const dispatch = useAppDispatch();
-    const { neighbors, status } = useSelector(selectDetail);
+  const dispatch = useAppDispatch();
+  const { neighbors, status } = useSelector(selectDetail);
 
   const {
     borders = [],
@@ -25,18 +22,17 @@ const InfoDetail = (props) => {
     flags,
   } = props;
 
-    const getBorder = async () => {
-      dispatch(
-        fetchBorderDetail({
-          borders,
-        })
-      );
-    };
+  const getBorder = async () => {
+    dispatch(
+      fetchBorderDetail({
+        borders,
+      })
+    );
+  };
 
   React.useEffect(() => {
-    if (borders.length)
-      getBorder();
-    }, [borders]);
+    if (borders.length) getBorder();
+  }, [borders]);
 
   return (
     <div className="InfoDetail">
@@ -55,7 +51,8 @@ const InfoDetail = (props) => {
             <span>border not found</span>
           ) : (
             <div className="InfoDetail__borders">
-              {status === 'succes' &&
+              {status === 'loading' ? 'загрузка' : ''}
+              {status === 'success' &&
                 neighbors.map((b) => (
                   <Link to={`/name/${b.common}`} key={b.common}>
                     {b.common}

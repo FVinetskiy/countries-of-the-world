@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../strore';
 
 const initialState = {
   search: '',
@@ -23,4 +24,4 @@ export const { setRegion, setSearch, clearControls } =
   filterSlicer.actions;
 
 export default filterSlicer.reducer;
-export const selectFilter = (state) => state.filterSlicer;
+export const selectFilter = (state: RootState) => state.filterSlicer;

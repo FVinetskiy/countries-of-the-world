@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader';
 
-const Skeleton = ({ args }) => {
+const Skeleton:React.FC = () => {
   return (
     <div>
       <ContentLoader
@@ -11,7 +11,6 @@ const Skeleton = ({ args }) => {
         viewBox="0 0 185 250"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
-        {...args}
       >
         <rect x="0" y="190" rx="4" ry="4" width="185" height="12" />
         <rect x="195" y="115" rx="3" ry="3" width="52" height="6" />
