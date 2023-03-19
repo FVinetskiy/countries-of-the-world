@@ -2,8 +2,8 @@ import { RootState } from '../strore';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
 type detailItemBorder = {
+[x: string]: any;
   name: {
     common: string;
   };
@@ -12,6 +12,11 @@ type detailItemBorder = {
 export type fetchDetailParams = {
   borders: string[];
 };
+
+interface BorderDetailState {
+  status: string;
+  neighbors: detailItemBorder[];
+}
 
 export const fetchBorderDetail = createAsyncThunk<
   detailItemBorder[],
@@ -24,14 +29,9 @@ export const fetchBorderDetail = createAsyncThunk<
   return data.map((country: detailItemBorder) => country.name);
 });
 
-interface BorderDetailState {
-  status: string;
-  neighbors: detailItemBorder[];
-}
-
 const initialState: BorderDetailState = {
-  neighbors: [],
   status: 'loading',
+  neighbors: [],
 };
 
 const detailBorderSlice = createSlice({
@@ -59,4 +59,5 @@ const detailBorderSlice = createSlice({
 });
 
 export default detailBorderSlice.reducer;
-export const selectDetail = (state: RootState) => state.detailBorderSlice;
+export const selectDetail = (state: RootState) =>
+  state.detailBorderSlice;

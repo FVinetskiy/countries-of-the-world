@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import './SwitchTheme.sass';
 import { useLayoutEffect } from 'react';
 import { useAppDispatch } from '../../redux/strore';
 import { useSelector } from 'react-redux';
 import { setTheme, selectTheme } from '../../redux/slice/themeSlice';
 
-const SwitchTheme: React.FC = () => {
+const SwitchTheme: FC = () => {
   const dispatch = useAppDispatch();
   const { theme } = useSelector(selectTheme);
 

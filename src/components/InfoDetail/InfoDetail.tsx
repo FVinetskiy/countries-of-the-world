@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './InfoDetail.sass';
 import { Link } from 'react-router-dom';
-import './InfoDetail.sass';
 import {
   selectDetail,
   fetchBorderDetail,
@@ -9,23 +8,23 @@ import {
 import { useAppDispatch } from '../../redux/strore';
 import { useSelector } from 'react-redux';
 
-const InfoDetail = (props) => {
+
+const InfoDetail = ({
+  borders = [],
+  common,
+  nofficial,
+  population,
+  region,
+  flags,
+}:any) => {
   const dispatch = useAppDispatch();
   const { neighbors, status } = useSelector(selectDetail);
 
-  const {
-    borders = [],
-    common,
-    nofficial,
-    population,
-    region,
-    flags,
-  } = props;
 
   const getBorder = async () => {
     dispatch(
       fetchBorderDetail({
-        borders,
+        borders
       })
     );
   };

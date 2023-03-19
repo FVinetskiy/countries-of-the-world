@@ -1,14 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import ListCountries from '../../components/ListCountries/ListCountries';
 import Skeleton from '../../components/Skeleton/Skeleton';
 import ItemCountrie from '../../components/ItemCountrie/ItemCountrie';
 import Filters from '../../components/Filters/Filters';
 
+type country = {
+  name: string;
+  capital: string;
+  region: string;
+  population: number;
+  independent: boolean;
+  flags: {
+    png: string;
+    svg: string;
+  };
+};
 
-const Home = ({ status, countries }) => {
-  const [filtredCountry , setFiltredCountry] = useState(countries);
+type PropsHome = {
+  status: string;
+  countries: country[];
+};
 
-  const HandleSearch = (search, region) => {
+const Home: FC<PropsHome> = ({ status, countries }) => {
+  const [filtredCountry, setFiltredCountry] = useState(countries);
+
+  const HandleSearch = (search?: string, region?: string) => {
     let data = [...countries];
 
     if (region) {
@@ -19,27 +35,27 @@ const Home = ({ status, countries }) => {
         c.name.toLowerCase().includes(search)
       );
     }
-    setFiltredCountry(data)
+    setFiltredCountry(data);
   };
 
   useEffect(() => {
     HandleSearch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countries]);
-
 
   const countriesmap = filtredCountry.map((item) => (
     <ItemCountrie key={item.name} {...item} />
-  ));
+  ))
 
   const skeletons = [...new Array(8)].map((_, index) => (
     <Skeleton key={index} />
   ));
 
+  const filterLength = countriesmap.length;
+
   return (
     <>
       <Filters onSearch={HandleSearch} />
-      <ListCountries countries={countriesmap} />
+      <ListCountries countries={filterLength} />
       <div>
         {status === 'error' ? (
           <div>сервер не дал данные</div>

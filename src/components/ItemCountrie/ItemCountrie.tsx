@@ -1,18 +1,18 @@
-import React from 'react';
+import { FC } from 'react';
 import './ItemCountrie.sass';
 import { Link } from 'react-router-dom';
 
 type TProps = {
-  population: string;
-  flags: { 
-    png: string
-  }
+  population: number;
+  flags: {
+    png: string;
+  };
   region: string;
   name: string;
   capital: string;
 };
 
-const ItemCountrie: React.FC<TProps> = ({
+const ItemCountrie: FC<TProps> = ({
   population,
   flags,
   region,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, FC } from 'react';
 import './Filters.sass';
 import Search from '../Search/Search';
 import CustomSelect from '../CustomSelect/CustomSelect';
@@ -10,16 +10,24 @@ import {
   setRegion,
 } from '../../redux/slice/filterSlicer';
 
+type PropsFilter = {
+  onSearch: Function;
+};
 
-const Filters = ({ onSearch }) => {
+const Filters: FC<PropsFilter> = ({ onSearch }) => {
   const dispatch = useAppDispatch();
   const { search, region } = useSelector(selectFilter);
 
-  const handleSearch = (e) => {
-    dispatch(setSearch(e.target.value));
+  const handleSearch = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const target = event.target as HTMLInputElement;
+    if (target) {
+      dispatch(setSearch(target.value));
+    }
   };
 
-  const handleSelect = (reg) => {
+  const handleSelect = (reg: any) => {
     dispatch(setRegion(reg?.value || ''));
   };
 
@@ -30,11 +38,7 @@ const Filters = ({ onSearch }) => {
   return (
     <div className="filter">
       <Search value={search} onChange={handleSearch} />
-      <CustomSelect
-        region={region}
-        value={region}
-        onChange={handleSelect}
-      />
+      <CustomSelect region={region} onChange={handleSelect} />
     </div>
   );
 };

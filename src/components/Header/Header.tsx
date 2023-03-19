@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import './Header.sass';
 import SwitchTheme from '../SwitchTheme/SwitchTheme';
 import { Link } from 'react-router-dom';
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   return (
     <header className="header">
       <Link className="header__title" to={'/'}>

@@ -1,13 +1,13 @@
-import React from 'react';
+import { FC } from 'react';
 import Select from 'react-select';
 import './CustomSelect.sass';
 
 type CustomSelectProps = {
   onChange: any;
-  region: any;
+  region: string;
 };
 
-const CustomSelect: React.FC<CustomSelectProps> = ({
+const CustomSelect: FC<CustomSelectProps> = ({
   onChange,
   region,
 }) => {

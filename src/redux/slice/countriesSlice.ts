@@ -10,9 +10,9 @@ type country = {
   population: number;
   independent: boolean;
   flags: {
-     png:string;
-     svg:string;
-   }
+    png: string;
+    svg: string;
+  };
 };
 
 interface CountryState {

@@ -1,7 +1,7 @@
-import React from 'react'
+import { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
-const Skeleton:React.FC = () => {
+const Skeleton: FC = () => {
   return (
     <div>
       <ContentLoader
@@ -24,4 +24,4 @@ const Skeleton:React.FC = () => {
   );
 };
 
-export default Skeleton
+export default Skeleton;

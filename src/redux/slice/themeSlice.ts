@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../strore';
 
-const initialState = {
-  theme: 'light'
+export interface themeSliceState {
+  theme: string;
+}
+
+const initialState: themeSliceState = {
+  theme: 'light',
 };
 
 export const themeSlice = createSlice({

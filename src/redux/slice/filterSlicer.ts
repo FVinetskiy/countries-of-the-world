@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../strore';
 
-const initialState = {
+export interface filterSliceState {
+  search: string;
+  region: string;
+}
+
+const initialState: filterSliceState = {
   search: '',
   region: '',
 };

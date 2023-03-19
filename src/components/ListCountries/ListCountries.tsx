@@ -1,15 +1,15 @@
-import React from 'react'
+import { FC } from 'react';
 import './ListCountries.sass';
 
 type IlistProps = {
-  countries: []
+  countries: number;
 };
 
-const ListCountries: React.FC<IlistProps> = ({ countries }) => {
+const ListCountries: FC<IlistProps> = ({ countries }) => {
   return (
     <div className="listwrapper">
       <h1 className="listwrapper__title">ListCountries</h1>
-      <span>{countries.length}</span>
+      <span>{countries}</span>
     </div>
   );
 };

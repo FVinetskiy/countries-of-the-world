@@ -10,7 +10,7 @@ export type detailItem = {
   borders: string[];
   common: string;
   nofficial: string;
-  population: string;
+  population: number;
   region: string;
   flags: {
     png: string;

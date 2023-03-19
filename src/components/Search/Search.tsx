@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Search.sass';
 
 type Isearch = {
@@ -6,7 +6,7 @@ type Isearch = {
   value: string;
 };
 
-const Search: React.FC<Isearch> = ({ onChange, value }) => {
+const Search: FC<Isearch> = ({ onChange, value }) => {
   return (
     <input
       className="search"
